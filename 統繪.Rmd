@@ -1,0 +1,47 @@
+---
+title: "Introduction to R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R
+R is a system for statistical analyses and graphics, comparing to Matlab and SAS, R language is a free software. Therefore, R language has a wider user community at this stage.
+
+R has many functions for statistical analyses and graphics; the latter are
+visualized immediately in their own window and can be saved in various formats (jpg, png, bmp, ps, pdf, emf, pictex, xfig; the available formats may depend on the operating system).
+
+
+
+## Statistics graphic
+
+Using R to draw statistics grahics.
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot,so you can decide if you want to show your code to everyone.
+
+The grahic below, I delete the `ehco=False` so you will see my code. 
+For example:
+
+```{r}
+x <- 0:10
+probablity <- dbinom(x, size=10, prob=0.7) 
+plot  (x, probablity, type='h', ylab="pmf", cex.main=0.8, ylim = c(0, 0.4))
+points(x, probablity, pch=19)
+title(expression(paste("Binomial(n,p) with n =10")))
+legend("topright", c("p = 0.7", "p = 0.5", "p = 0.2"), col=c("black","blue","red"), lty=c(1,4,2), pch=c(19,8,17))
+par(new=TRUE)
+
+probablity <- dbinom(x, size=10, prob=0.5)
+plot  (x, probablity, col='blue', type='h', lty=4, xlab="", ylab="", ylim = c(0, 0.4))
+points(x, probablity, pch=8, col='blue')
+par(new=TRUE)
+
+probablity <- dbinom(x, size=10, prob=0.2)
+plot  (x, probablity, col='red', type='h', lty=2, xlab="", ylab="", ylim = c(0, 0.4))
+points(x, probablity, pch=17, col='red')
+
+
+```
+
+
